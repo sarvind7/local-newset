@@ -1,4 +1,7 @@
 import csv
+import sys
+import os
+
 countylist = []
 newspaperlist = []
 def readFile(file):
