@@ -3,11 +3,9 @@ import sys
 import os
 
 
-def read_in_counties_newspapers(file):
-    """ A function that takes in a file of counties and the
-    corresponding local newspaper. Then, stores the counties in
-    a list, and the local newspapers in another list and stores
-    the two lists in a tuple."""
+def read_county_to_newspaper_csv(file):
+    """ Takes in a csv file with each row containing a county
+    and newspaper and outputs a list of (county, newspaper) tuples."""
     county_list = []
     newspaper_list = []
     with open(file, newline='') as csvfile:
@@ -15,4 +13,6 @@ def read_in_counties_newspapers(file):
         for row in reader:
             county_list.append(row['counties'])
             newspaper_list.append(row['localnewspapers'])
-        return (county_list, newspaper_list)
+    county_tuple = tuple(county_list)
+    newspaper_tuple = tuple(newspaper_list)
+    return [county_tuple, newspaper_tuple]
